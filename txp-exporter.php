@@ -3,7 +3,7 @@
 include('textpattern/config.php');
 
 // Do you want to export HTML (for WordPress, default true) or raw Textile formatting (false)?
-$export_html = true;
+$export_html = isset($_GET["exportRaw"]) ? false : true;
 
 $connection = mysql_connect((isset($txpcfg['host']) ? $txpcfg['host'] : '127.0.0.1'),$txpcfg['user'], $txpcfg['pass']);
 mysql_select_db($txpcfg['db'], $connection);
